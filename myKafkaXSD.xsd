@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<!-- Root Element -->
+<xs:element name="CRT">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Header" type="HeaderType"/>
+<xs:element name="Body" type="BodyType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<!-- Header Type -->
+<xs:complexType name="HeaderType">
+<xs:attribute name="Action" type="xs:string" use="required"/>
+<xs:attribute name="ApplicationSource" type="xs:string" use="required"/>
+<xs:attribute name="CRTVersionNumber" type="xs:string" use="required"/>
+<xs:attribute name="ModeType" type="xs:string" use="required"/>
+<xs:attribute name="RootType" type="xs:string" use="required"/>
+<xs:attribute name="Timestamp" type="xs:string" use="required"/>
+</xs:complexType>
+<!-- Body Type -->
+<xs:complexType name="BodyType">
+<xs:sequence>
+<xs:element name="CPY" type="CPYType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<!-- CPY Type -->
+<xs:complexType name="CPYType">
+<xs:sequence>
+<xs:element name="CPYIdentification" type="CPYIdentificationType"/>
+<xs:element name="CPYRoles" type="CPYRolesType"/>
+<xs:element name="CPYCharacteristics" type="CPYCharacteristicsType"/>
+<xs:element name="Adress" type="AdressType"/>
+<xs:element name="CPYInternalRatings" type="CPYInternalRatingsType"/>
+<xs:element name="CPYLifeCycle" type="CPYLifeCycleType"/>
+<xs:element name="CPYLinks" type="CPYLinksType"/>
+<xs:element name="CPYTradeData" type="CPYTradeDataType"/>
+<xs:element name="CPYCasaData" type="CPYCasaDataType"/>
+<xs:element name="DFAClassification" type="DFAClassificationType"/>
+<xs:element name="EMIRClassification" type="EMIRClassificationType"/>
+<xs:element name="MifidData" type="MifidDataType"/>
+<xs:element name="KYCData" type="KYCDataType"/>
+<xs:element name="Nydata" type="NydataType"/>
+<xs:element name="CPYLocalIdentification" type="CPYLocalIdentificationType" maxOccurs="unbounded"/>
+<xs:element name="ExternalId" type="ExternalIdType" maxOccurs="unbounded"/>
+<xs:element name="CPYChilds" type="CPYChildsType" minOccurs="0"/>
+<xs:element name="AdditionalFields" type="AdditionalFieldsType" minOccurs="0"/>
+<xs:element name="ISOAddress" type="ISOAddressType"/>
+</xs:sequence>
+<xs:attribute name="Id" type="xs:string" use="required"/>
+</xs:complexType>
+<!-- CPYIdentification Type -->
+<xs:complexType name="CPYIdentificationType">
+<xs:sequence>
+<xs:element name="Legal" type="LegalType"/>
+<xs:element name="Person" type="PersonType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LegalType">
+<xs:attribute name="ClassOfLegalEntity" type="xs:string"/>
+<xs:attribute name="INSEELegalName" type="xs:string"/>
+<xs:attribute name="LongName" type="xs:string"/>
+<xs:attribute name="NormalizedLegalName" type="xs:string"/>
+<xs:attribute name="ShortName" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="PersonType">
+<xs:attribute name="BirthDate" type="xs:string"/>
+<xs:attribute name="BirthPlace" type="xs:string"/>
+<xs:attribute name="FirstName" type="xs:string"/>
+<xs:attribute name="LastName" type="xs:string"/>
+<xs:attribute name="MaritalStatus" type="xs:string"/>
+<xs:attribute name="Sex" type="xs:string"/>
+</xs:complexType>
+<!-- CPYRoles Type -->
+<xs:complexType name="CPYRolesType">
+<xs:attribute name="CalyonPrimaryCoverageUnit" type="xs:string"/>
+<xs:attribute name="ESFWorldwidePilotEntity" type="xs:string"/>
+<xs:attribute name="ForcedCalyonPrimaryCoverageUnit" type="xs:string"/>
+<xs:attribute name="FraneRunEntity" type="xs:string"/>
+<xs:attribute name="FraneRunManager" type="xs:string"/>
+<xs:attribute name="PilotDivision" type="xs:string"/>
+<xs:attribute name="RMCCalyon" type="xs:string"/>
+<xs:attribute name="ReportingEntity" type="xs:string"/>
+<xs:attribute name="UEWorldwidePilotEntity" type="xs:string"/>
+</xs:complexType>
+<!-- CPYCharacteristics Type -->
+<xs:complexType name="CPYCharacteristicsType">
+<xs:attribute name="BAFIAccountingCode" type="xs:string"/>
+<xs:attribute name="BaselPortfolio" type="xs:string"/>
+<xs:attribute name="CalyonRelationType" type="xs:string"/>
+<xs:attribute name="CalyonRelationTypeReviewDate" type="xs:date"/>
+<xs:attribute name="Category" type="xs:string"/>
+<xs:attribute name="CategoryValidationDate" type="xs:string"/>
+<xs:attribute name="CategoryValidationStatus" type="xs:string"/>
+<xs:attribute name="ControlCountry" type="xs:string"/>
+<xs:attribute name="ControlCountryValidationDate" type="xs:string"/>
+<xs:attribute name="ControlCountryValidationStatus" type="xs:string"/>
+<xs:attribute name="KiwisRelationType" type="xs:string"/>
+<xs:attribute name="KiwisRelationTypeReviewDate" type="xs:date"/>
+<xs:attribute name="NAFActivityCode" type="xs:string"/>
+<xs:attribute name="NAFActivityCodeRev2" type="xs:string"/>
+<xs:attribute name="NationalityCountry" type="xs:string"/>
+<xs:attribute name="NationalityCountryValidationDate" type="xs:string"/>
+<xs:attribute name="NationalityCountryValidationStatus" type="xs:string"/>
+<xs:attribute name="PrincipalBusinessArea" type="xs:string"/>
+<xs:attribute name="PrincipalBusinessAreaValidationDate" type="xs:string"/>
+<xs:attribute name="PrincipalBusinessAreaValidationStatus" type="xs:string"/>
+<xs:attribute name="PublicPrivateCode" type="xs:string"/>
+<xs:attribute name="ResidenceCountry" type="xs:string"/>
+<xs:attribute name="ResidenceCountryValidationDate" type="xs:string"/>
+<xs:attribute name="ResidenceCountryValidationStatus" type="xs:string"/>
+<xs:attribute name="RiskCountry" type="xs:string"/>
+<xs:attribute name="NAFActivityCodeRev2INSEE" type="xs:string"/>
+<xs:attribute name="NationalityCountryFS" type="xs:string"/>
+<xs:attribute name="NationalityCountryFSValidationStatus" type="xs:string"/>
+<xs:attribute name="NationalityCountryFSValidationDate" type="xs:string"/>
+<xs:attribute name="ResidenceCountryFS" type="xs:string"/>
+<xs:attribute name="ResidenceCountryFSValidationStatus" type="xs:string"/>
+<xs:attribute name="ResidenceCountryFSValidationDate" type="xs:string"/>
+<xs:attribute name="CategoryFS" type="xs:string"/>
+<xs:attribute name="CategoryFSValidationStatus" type="xs:string"/>
+<xs:attribute name="CategoryFSValidationDate" type="xs:string"/>
+<xs:attribute name="PrincipalBusinessAreaFS" type="xs:string"/>
+<xs:attribute name="PrincipalBusinessAreaFSValidationStatus" type="xs:string"/>
+<xs:attribute name="PrincipalBusinessAreaFSValidationDate" type="xs:string"/>
+<xs:attribute name="ControlCountryFS" type="xs:string"/>
+<xs:attribute name="ControlCountryFSValidationStatus" type="xs:string"/>
+<xs:attribute name="ControlCountryFSValidationDate" type="xs:string"/>
+</xs:complexType>
+<!-- Adress Type -->
+<xs:complexType name="AdressType">
+<xs:attribute name="City" type="xs:string"/>
+<xs:attribute name="Line1" type="xs:string"/>
+<xs:attribute name="Line2" type="xs:string"/>
+<xs:attribute name="State" type="xs:string"/>
+<xs:attribute name="ZipCode" type="xs:string"/>
+</xs:complexType>
+<!-- CPYInternalRatings Type -->
+<xs:complexType name="CPYInternalRatingsType">
+<xs:attribute name="Date" type="xs:date"/>
+<xs:attribute name="FinalInternalRating" type="xs:string"/>
+<xs:attribute name="Methodology" type="xs:string"/>
+<xs:attribute name="Reason" type="xs:string"/>
+</xs:complexType>
+<!-- CPYLifeCycle Type -->
+<xs:complexType name="CPYLifeCycleType">
+<xs:attribute name="CreationDate" type="xs:date"/>
+<xs:attribute name="InCreationFlag" type="xs:string"/>
+<xs:attribute name="KiwisRelationShipCode" type="xs:string"/>
+<xs:attribute name="KiwisRelationShipCodeReviewDate" type="xs:date"/>
+<xs:attribute name="ModificationDate" type="xs:date"/>
+<xs:attribute name="ModifiedBy" type="xs:string"/>
+<xs:attribute name="RelationShipCode" type="xs:string"/>
+<xs:attribute name="RelationShipCodeReviewDate" type="xs:date"/>
+<xs:attribute name="UpdateDate" type="xs:date"/>
+</xs:complexType>
+<!-- CPYLinks Type -->
+<xs:complexType name="CPYLinksType">
+<xs:attribute name="GroupLinkDate" type="xs:date"/>
+<xs:attribute name="ParentCPHid" type="xs:string"/>
+<xs:attribute name="ParentCPHlongName" type="xs:string"/>
+<xs:attribute name="ParentId" type="xs:string"/>
+<xs:attribute name="ProposedParentCPH" type="xs:string"/>
+<xs:attribute name="SubsidiaryParent" type="xs:string"/>
+<xs:attribute name="CPMBranchFlag" type="xs:string"/>
+</xs:complexType>
+<!-- CPYTradeData Type -->
+<xs:complexType name="CPYTradeDataType">
+<xs:attribute name="DealingRestriction" type="xs:string"/>
+<xs:attribute name="DealingRestrictionReviewDate" type="xs:date"/>
+<xs:attribute name="Depository" type="xs:string"/>
+<xs:attribute name="FiduciaryRole" type="xs:string"/>
+<xs:attribute name="FiduciaryRoleType" type="xs:string"/>
+<xs:attribute name="FundOriginator" type="xs:string"/>
+<xs:attribute name="PrincipalSponsor" type="xs:string"/>
+<xs:attribute name="RegroupingCPY" type="xs:string"/>
+<xs:attribute name="SponsorType" type="xs:string"/>
+<xs:attribute name="DNDRequestor" type="xs:string"/>
+</xs:complexType>
+<!-- CPYCasaData Type -->
+<xs:complexType name="CPYCasaDataType">
+<xs:attribute name="CAConsoId" type="xs:string"/>
+<xs:attribute name="EconomicAgentCode" type="xs:string"/>
+<xs:attribute name="GroupCreditAgricoleFlag" type="xs:string"/>
+</xs:complexType>
+<!-- DFAClassification Type -->
+<xs:complexType name="DFAClassificationType">
+<xs:attribute name="Commo" type="xs:string"/>
+<xs:attribute name="Credits" type="xs:string"/>
+<xs:attribute name="Entity" type="xs:string"/>
+<xs:attribute name="Equity" type="xs:string"/>
+<xs:attribute name="FX" type="xs:string"/>
+<xs:attribute name="Rates" type="xs:string"/>
+<xs:attribute name="ClientClassification15a6" type="xs:string"/>
+</xs:complexType>
+<!-- EMIRClassification Type -->
+<xs:complexType name="EMIRClassificationType">
+<xs:attribute name="Emirclassification" type="xs:string"/>
+</xs:complexType>
+<!-- MifidData Type -->
+<xs:complexType name="MifidDataType">
+<xs:attribute name="ClientClassificationFlag" type="xs:string"/>
+<xs:attribute name="InitialNotificationDate" type="xs:date"/>
+<xs:attribute name="InitialNotificationStatus" type="xs:string"/>
+<xs:attribute name="InternalSuitabilityRating" type="xs:string"/>
+<xs:attribute name="LawClassificationFlag" type="xs:string"/>
+<xs:attribute name="VanilleProductExperience" type="xs:string"/>
+</xs:complexType>
+<!-- KYCData Type -->
+<xs:complexType name="KYCDataType">
+<xs:attribute name="KYCRating" type="xs:string"/>
+<xs:attribute name="KYCStatus" type="xs:string"/>
+<xs:attribute name="KYCValidationDate" type="xs:date"/>
+<xs:attribute name="WorldwideKYCId" type="xs:string"/>
+</xs:complexType>
+<!-- Nydata Type -->
+<xs:complexType name="NydataType">
+<xs:attribute name="NYlocalKactusStatus" type="xs:string"/>
+<xs:attribute name="NYlocalRelationShipCode" type="xs:string"/>
+<xs:attribute name="OFAC" type="xs:string"/>
+<xs:attribute name="PatriotAct" type="xs:string"/>
+<xs:attribute name="PatriotActCertificationDate" type="xs:string"/>
+<xs:attribute name="UsCompliant" type="xs:string"/>
+</xs:complexType>
+<!-- CPYLocalIdentification Type -->
+<xs:complexType name="CPYLocalIdentificationType">
+<xs:attribute name="AliasId" type="xs:string"/>
+<xs:attribute name="AliasType" type="xs:string"/>
+<xs:attribute name="KYCValidationStatus" type="xs:string"/>
+<xs:attribute name="LocalRelationShipCode" type="xs:string"/>
+<xs:attribute name="LocalRelationType" type="xs:string"/>
+<xs:attribute name="RR" type="xs:string"/>
+</xs:complexType>
+<!-- ExternalId Type -->
+<xs:complexType name="ExternalIdType">
+<xs:attribute name="ExternalAliasId" type="xs:string"/>
+<xs:attribute name="ExternalAliasType" type="xs:string"/>
+</xs:complexType>
+<!-- CPYChilds Type -->
+<xs:complexType name="CPYChildsType">
+<xs:sequence>
+<xs:element name="SC" type="SCType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<!-- SC Type -->
+<xs:complexType name="SCType">
+<xs:sequence>
+<xs:element name="SCIdentification" type="SCIdentificationType"/>
+<xs:element name="SCRoles" type="SCRolesType"/>
+<xs:element name="Adress" type="AdressType"/>
+<xs:element name="SCLifeCycle" type="SCLifeCycleType"/>
+<xs:element name="SCLocalIdentification" type="SCLocalIdentificationType" maxOccurs="unbounded"/>
+<xs:element name="ExternalId" type="ExternalIdType" maxOccurs="unbounded"/>
+<xs:element name="ISOAddress" type="ISOAddressType"/>
+</xs:sequence>
+<xs:attribute name="Id" type="xs:string" use="required"/>
+</xs:complexType>
+<xs:complexType name="SCIdentificationType">
+<xs:attribute name="CalyonGroupSCFlag" type="xs:string"/>
+<xs:attribute name="Country" type="xs:string"/>
+<xs:attribute name="LongName" type="xs:string"/>
+<xs:attribute name="ProfitCenter" type="xs:string"/>
+<xs:attribute name="SCType" type="xs:string"/>
+<xs:attribute name="SCinternalType" type="xs:string"/>
+<xs:attribute name="ShortName" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="SCRolesType">
+<xs:attribute name="ReportingEntity" type="xs:string"/>
+<xs:attribute name="ResponsibilityCenter" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="SCLifeCycleType">
+<xs:attribute name="CentralStatusCode" type="xs:string"/>
+<xs:attribute name="CreationDate" type="xs:date"/>
+<xs:attribute name="ModificationDate" type="xs:date"/>
+<xs:attribute name="ModifiedBy" type="xs:string"/>
+<xs:attribute name="UpdateDate" type="xs:date"/>
+</xs:complexType>
+<xs:complexType name="SCLocalIdentificationType">
+<xs:attribute name="AliasId" type="xs:string"/>
+<xs:attribute name="AliasType" type="xs:string"/>
+<xs:attribute name="LocalParentId" type="xs:string"/>
+<xs:attribute name="LocalStatusCode" type="xs:string"/>
+<xs:attribute name="OperationsManager" type="xs:string"/>
+</xs:complexType>
+<!-- AdditionalFields Type -->
+<xs:complexType name="AdditionalFieldsType">
+<xs:sequence>
+<xs:element name="AdditionalField" type="AdditionalFieldType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AdditionalFieldType">
+<xs:sequence>
+<xs:element name="Composition" type="CompositionType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="type" type="xs:string" use="required"/>
+<xs:attribute name="code" type="xs:string" use="required"/>
+<xs:attribute name="value" type="xs:string"/>
+</xs:complexType>
+<xs:complexType name="CompositionType">
+<xs:sequence>
+<xs:element name="Field" type="FieldType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FieldType">
+<xs:attribute name="type" type="xs:string" use="required"/>
+<xs:attribute name="code" type="xs:string" use="required"/>
+<xs:attribute name="value" type="xs:string"/>
+</xs:complexType>
+<!-- ISOAddress Type -->
+<xs:complexType name="ISOAddressType">
+<xs:attribute name="Department" type="xs:string"/>
+<xs:attribute name="SubDepartment" type="xs:string"/>
+<xs:attribute name="BuildingName" type="xs:string"/>
+<xs:attribute name="Floor" type="xs:string"/>
+<xs:attribute name="Room" type="xs:string"/>
+<xs:attribute name="StreetName" type="xs:string"/>
+<xs:attribute name="StreetNumber" type="xs:string"/>
+<xs:attribute name="PostBox" type="xs:string"/>
+<xs:attribute name="RepetitionIndex" type="xs:string"/>
+<xs:attribute name="TrackType" type="xs:string"/>
+<xs:attribute name="City" type="xs:string"/>
+<xs:attribute name="ZipCode" type="xs:string"/>
+<xs:attribute name="TownLocName" type="xs:string"/>
+<xs:attribute name="DistrictName" type="xs:string"/>
+<xs:attribute name="State" type="xs:string"/>
+</xs:complexType>
+</xs:schema>
